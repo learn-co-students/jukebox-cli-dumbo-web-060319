@@ -1,3 +1,5 @@
+require "pry"
+
 songs = [
   "Phoenix - 1901",
   "Tokyo Police Club - Wait Up",
@@ -15,3 +17,11 @@ def help
   comm_list = ["help", "list", "play", "exit"]
   puts "The available commands are: \n #{comm_list.map{|com| puts com}}"
 end
+
+def play(entry)
+  puts songs
+end
+
+# For method, play, I get an error message:
+# undefined local variable or method `songs'
+# even though it's globally defined on line 3
