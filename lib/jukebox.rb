@@ -33,6 +33,10 @@ def help
   puts "The available commands are: \n #{comm_list.map{|com| puts com}}"
 end
 
+def list(songs)
+  songs.map{ |song| puts song }
+end
+
 # def play(entry)
 #   # error message
 #   err_message = "Invalid input, please try again"
@@ -52,6 +56,8 @@ end
 #   # puts "fail" if record == nil
 # end
 
-def list(songs)
-  songs.map{ |song| puts song }
+
+def exit_jukebox
+  puts "Goodbye"
+  exit
 end
