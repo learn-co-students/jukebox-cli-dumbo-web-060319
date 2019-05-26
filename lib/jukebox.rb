@@ -52,25 +52,34 @@ def play(entry)
 
   # error message
   err_message = "Invalid input, please try again"
-  # successful song pick
-  # song_entry = ""
-  # return puts err_message if entry == "" || entry == nil
-  return puts err_message if !entry.is_a?(String) & !entry.is_a?(Numeric) # || playlist.find{|song| song.include?(entry)} == nil
-  # go through our playlist
-  if entry.is_a?(Numeric)
-    puts songs[entry - 1] 
-    return songs[entry - 1]
-  elsif entry.is_a?(String)
-    song_entry = songs.select{|song| song.include?(entry)}
-    puts song_entry
-    return song_entry
+
+  if entry.is_a?(String) == false && entry.is_a?(Numeric) == false # || playlist.find{|song| song.include?(entry)} == nil
+    puts err_message
+    return
   end
-  
-  # puts song_entry
-  # return song_entry
-  # record = playlist.find{|song| song.include?("jackson")}
-  # puts "fail" if record == nil
+
+  if entry == ""
+    puts err_message
+    return
+  end
+
+  if entry.is_a?(Numeric)
+    binding.pry
+    puts songs[entry - 1] 
+    return
+  elsif entry.is_a?(String)
+    # binding.pry
+    songs.map do |song| 
+      if song.include?(entry)
+        puts song
+        return
+      end
+    end
+  end
+
 end
+
+play(3)
 
 
 def exit_jukebox
