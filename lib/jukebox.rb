@@ -37,49 +37,48 @@ def list(songs)
   songs.map{ |song| puts song }
 end
 
-def play(entry)
-  songs = [
-    "Phoenix - 1901",
-    "Tokyo Police Club - Wait Up",
-    "Sufjan Stevens - Too Much",
-    "The Naked and the Famous - Young Blood",
-    "(Far From) Home - Tiga",
-    "The Cults - Abducted",
-    "Phoenix - Consolation Prizes",
-    "Harry Chapin - Cats in the Cradle",
-    "Amos Lee - Keep It Loose, Keep It Tight"
-  ]
+def play(songs)
+  puts "►"
+
+  request = gets.chomp
 
   # error message
   err_message = "Invalid input, please try again"
 
-  if entry.is_a?(String) == false && entry.is_a?(Numeric) == false # || playlist.find{|song| song.include?(entry)} == nil
+  
+  if request.is_a?(String) == false # || playlist.find{|song| song.include?(request)} == nil
+    puts err_message
+    return
+  end
+  
+  if request == ""
     puts err_message
     return
   end
 
-  if entry == ""
+  if request.to_i > songs.length ||= 0
     puts err_message
     return
   end
 
-  if entry.is_a?(Numeric)
+  if request.to_i < 0
+    puts songs[Integer(request) - 1] 
     binding.pry
-    puts songs[entry - 1] 
     return
-  elsif entry.is_a?(String)
-    # binding.pry
-    songs.map do |song| 
-      if song.include?(entry)
-        puts song
-        return
-      end
+  end
+  
+  songs.map do |song| 
+    if song.include?(request)
+      puts song
+      return
+    else 
+      puts err_message
+      return
     end
   end
 
 end
 
-play(3)
 
 
 def exit_jukebox
