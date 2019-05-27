@@ -2,19 +2,19 @@
 #make sure to edit the value of each key to replace < path to this directory >
 #with the correct path to this directory on your computer
 
-my_songs = {
-"Go Go GO" => '/Users/samip/lab/jukebox-cli-dumbo-web-060319/audio/Emerald-Park/01.mp3',
-"LiberTeens" => '/Users/samip/lab/jukebox-cli-dumbo-web-060319/audio/Emerald-Park/02.mp3',
-"Hamburg" =>  '/Users/samip/lab/jukebox-cli-dumbo-web-060319/audio/Emerald-Park/03.mp3',
-"Guiding Light" => '/Users/samip/lab/jukebox-cli-dumbo-web-060319/audio/Emerald-Park/04.mp3',
-"Wolf" => '/Users/samip/lab/jukebox-cli-dumbo-web-060319/audio/Emerald-Park/05.mp3',
-"Blue" => '/Users/samip/lab/jukebox-cli-dumbo-web-060319/audio/Emerald-Park/06.mp3',
-"Graduation Failed" => '/Users/samip/lab/jukebox-cli-dumbo-web-060319/audio/Emerald-Park/07.mp3'
-}
+# my_songs = {
+# "Go Go GO" => '/Users/samip/lab/jukebox-cli-dumbo-web-060319/audio/Emerald-Park/01.mp3',
+# "LiberTeens" => '/Users/samip/lab/jukebox-cli-dumbo-web-060319/audio/Emerald-Park/02.mp3',
+# "Hamburg" =>  '/Users/samip/lab/jukebox-cli-dumbo-web-060319/audio/Emerald-Park/03.mp3',
+# "Guiding Light" => '/Users/samip/lab/jukebox-cli-dumbo-web-060319/audio/Emerald-Park/04.mp3',
+# "Wolf" => '/Users/samip/lab/jukebox-cli-dumbo-web-060319/audio/Emerald-Park/05.mp3',
+# "Blue" => '/Users/samip/lab/jukebox-cli-dumbo-web-060319/audio/Emerald-Park/06.mp3',
+# "Graduation Failed" => '/Users/samip/lab/jukebox-cli-dumbo-web-060319/audio/Emerald-Park/07.mp3'
+# }
 
 def help
   puts "I accept the following commands:
-  - help : displays this help message
+  - help : displays this help mesexiage
   - list : displays a list of songs you can play
   - play : lets you choose a song to play
   - exit : exits this program"
@@ -36,7 +36,8 @@ def play(my_songs)
   if my_songs.has_key?(input) 
     puts "Playing <#{input}>"
     url=my_songs[input]
-    system 'open #{url}'
+    p url
+    system "open #{url}"
   else
     puts "Invalid input, please try again"
   end
